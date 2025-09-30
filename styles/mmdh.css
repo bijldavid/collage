@@ -1,0 +1,53 @@
+.background-setup {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+section {
+    max-width: 1000px;
+    margin-inline: auto;
+    margin-top: 10rem;
+    padding: 5rem;
+    background-color: #e7d7be;
+    border-radius: 15px;
+}
+
+section nav {
+    --flex-gap: 2rem;
+    display: flex;
+    gap: var(--flex-gap);
+    margin-bottom: 1rem;
+}
+
+section nav a {
+    color: black;
+}
+
+section nav a:not(:last-of-type) {
+    position: relative;
+}
+
+section nav a:not(:last-of-type)::after {
+    position: absolute;
+    content: '>';
+    height: 16px;
+    width: 16px;
+    text-align: center;
+    top: 50%;
+    right: calc((var(--flex-gap) / 2 + .5rem) * -1);
+    translate: 0 -50%;
+    pointer-events: none;
+}
+
+section nav a:last-of-type {
+    text-decoration: underline;
+}
+
+
+section h1 {
+    filter: url(#pixelate100);
+    font-size: 5rem;
+    color: #790c0c;
+}

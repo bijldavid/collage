@@ -1,12 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/mmdh.css">
+    <title>Collage</title>
 </head>
+
 <body>
-    
+    <div class="container">
+        <img src="/images/noise-texture-2.png" alt="">
+        <div class="scene background-setup">
+          <div class="background"></div>
+        </div>
+
+        <section>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="mmdh.html">Man met de Hamer</a>
+            </nav>
+            <h1>Titel project</h1>
+        </section>
+      </div>
+
+    <svg style="position: fixed;">
+        <defs>
+            <filter id="pixelate-mosaic" x="0%" y="0%" width="100%" height="100%">
+                <feGaussianBlur stdDeviation="1" in="SourceGraphic" result="smoothed" />
+                <feImage width="8" height="8"
+                    xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAWSURBVAgdY1ywgOEDAwKxgJhIgFQ+AP/vCNK2s+8LAAAAAElFTkSuQmCC"
+                    result="displacement-map" />
+                <feTile in="displacement-map" result="pixelate-map" />
+                <feDisplacementMap in="smoothed" in2="pixelate-map" xChannelSelector="R" yChannelSelector="G" scale="25"
+                    result="pre-final" />
+                <feComposite operator="in" in2="SourceGraphic" />
+            </filter>
+
+            <filter id="pixelate200" x="0" y="0">
+                <feFlood x="2" y="2" height="1" width="1" />
+                <feComposite width="5" height="5" />
+                <feTile result="a" />
+                <feComposite in="SourceGraphic" in2="a" operator="in" />
+                <feMorphology operator="dilate" radius="2" />
+            </filter>
+        </defs>
+    </svg>
+
+    <svg style="position: fixed;">
+        <defs>
+            <filter id="pixelate-mosaic" x="0%" y="0%" width="100%" height="100%">
+                <!--Thanks to Zoltan Fegyver for figuring out pixelation and producing the awesome pixelation map. -->
+                <feGaussianBlur stdDeviation="0.5" in="SourceGraphic" result="smoothed" />
+                <feImage width="4" height="4" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAWSURBVAgdY1ywgOEDAwKxgJhIgFQ+AP/vCNK2s+8LAAAAAElFTkSuQmCC" result="displacement-map" />
+                <feTile in="displacement-map" result="pixelate-map" />
+                <feDisplacementMap in="smoothed" in2="pixelate-map" xChannelSelector="R" yChannelSelector="G" scale="12" result="pre-final" />
+                <feComposite operator="in" in2="SourceGraphic" />
+            </filter>
+            
+            <filter id="pixelate100" x="0" y="0">
+                <feFlood x="1" y="1" height="0.5" width="0.5" />
+                <feComposite width="2" height="2" />
+                <feTile result="a" />
+                <feComposite in="SourceGraphic" in2="a" operator="in" />
+                <feMorphology operator="dilate" radius="1" />
+            </filter>
+        </defs>
+    </svg>
 </body>
+
 </html>
