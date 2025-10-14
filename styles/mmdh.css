@@ -1,3 +1,7 @@
+.container {
+    overflow-x: hidden;
+}
+
 .background-setup {
     position: absolute !important;
     top: 0;
@@ -5,31 +9,86 @@
     z-index: -1;
 }
 
-section {
-    max-width: 1000px;
+.scene .background {
+    position: absolute;
+    --size: 500;
+
+    height: calc(var(--size) * 1%);
+    width: calc(var(--size) * 1%);
+    top: calc((var(--size) - 100) * -0.5%);
+    left: calc((var(--size) - 100) * -0.5%);
+
+    display: grid;
+    place-items: center;
+    translate: 0 0 -450px;
+    rotate: x 0deg;
+
+    background:
+        repeating-linear-gradient(transparent,
+            transparent 120px,
+            var(--background-grid) 120px,
+            var(--background-grid) 130px),
+        repeating-linear-gradient(90deg,
+            transparent,
+            transparent 120px,
+            var(--background-grid) 120px,
+            var(--background-grid) 130px),
+        var(--background-solid);
+
+    transition: rotate 1s ease;
+}
+
+
+
+
+
+
+
+
+main > section {
+    position: relative;
+    max-width: 1200px;
     margin-inline: auto;
     margin-top: 10rem;
     padding: 5rem;
-    background-color: #e7d7be;
-    border-radius: 15px;
+    background-color: var(--backdrop-200);
+    border: 2px solid var(--border);
 }
 
-section nav {
+section header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    box-shadow: 0 2px var(--border);
+}
+
+section header nav {
     --flex-gap: 2rem;
     display: flex;
+    width: calc(100% - 42px - 2px);
     gap: var(--flex-gap);
-    margin-bottom: 1rem;
+    padding: .5rem;
+    border-top: 5px solid var(--backdrop-100);
+    border-left: 5px solid var(--backdrop-100);
+    border-right: 5px solid var(--backdrop-300);
+    border-bottom: 5px solid var(--backdrop-300);
 }
 
-section nav a {
-    color: black;
+section header nav a {
+    color: var(--border);
 }
 
-section nav a:not(:last-of-type) {
+section header nav a:hover {
+    background: #00000020;
+}
+
+section header nav a:not(:last-of-type) {
     position: relative;
 }
 
-section nav a:not(:last-of-type)::after {
+section header nav a:not(:last-of-type)::after {
     position: absolute;
     content: '>';
     height: 16px;
@@ -41,13 +100,113 @@ section nav a:not(:last-of-type)::after {
     pointer-events: none;
 }
 
-section nav a:last-of-type {
+section header nav a:last-of-type {
     text-decoration: underline;
+}
+
+section header span {
+    margin-inline-start: auto;
+    display: block;
+    width: 42px;
+    text-align: center;
+    padding: .5rem;
+    border-top: 5px solid var(--backdrop-100);
+    border-left: 5px solid var(--backdrop-100);
+    border-right: 5px solid var(--backdrop-300);
+    border-bottom: 5px solid var(--backdrop-300);
+    box-shadow: -2px 0 var(--border);
+}
+
+section header span p {
+    color: var(--border);
+    animation: spin 3s steps(1) infinite;
+}
+
+@keyframes spin {
+    0% {
+        rotate: z 0deg;
+    }
+    12.5% {
+        rotate: z 45deg;
+    }
+    25% {
+        rotate: z 90deg;
+    }
+    37.5% {
+        rotate: z 135deg;
+    }
+    50% {
+        rotate: z 180deg;
+    }
+    62.5% {
+        rotate: z 225deg;
+    }
+    75% {
+        rotate: z 270deg;
+    }
+    82.5% {
+        rotate: z 315deg;
+    }
+    100% {
+        rotate: z 360deg;
+    }
 }
 
 
 section h1 {
     filter: url(#pixelate100);
     font-size: 5rem;
+    padding-bottom: .5rem;
     color: #790c0c;
+
+    width: 100%;
+    box-shadow: 
+    0 3px var(--border), 
+    0 5px var(--backdrop-200),
+    0 15px var(--border);
+    margin-bottom: calc(15px + 2rem);
+}
+
+section .general-data {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+section .general-data div:first-of-type {
+    padding: 0;
+    padding-inline-end: 2rem;
+}
+
+section .general-data div {
+    padding-inline: 2rem;
+}
+
+section .general-data div:last-of-type {
+    padding: 0;
+    padding-inline-start: 2rem;
+}
+
+section .general-data div:not(:last-child) {
+    border-right: 2px solid var(--border);
+}
+
+section .general-data div * {
+    font-family: 'waffer';
+    line-height: 1.3em;
+}
+
+section .general-data div h3 {
+    font-weight: 600;
+    color: var(--border);
+    margin-bottom: .5rem;
+}
+
+section .content-container * {
+    font-family: 'waffer';
+    line-height: 1.3em;
+}
+
+
+section .content-container {
+    margin-top: 2rem;
 }

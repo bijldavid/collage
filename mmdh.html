@@ -7,28 +7,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/mmdh.css">
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/animations.css">
-    <link rel="stylesheet" href="styles/mmdh.css">
-    <title>Collage</title>
+    <link rel="stylesheet" href="styles/fonts.css">
+    <link rel="stylesheet" href="https://use.typekit.net/kai5olp.css">
+    <title>Mmdh</title>
 </head>
 
 <body>
+
     <div class="container">
         <img src="/images/noise-texture-2.png" alt="">
         <div class="scene background-setup">
-          <div class="background"></div>
+            <div class="background"></div>
         </div>
+        <main>
+            <section>
+                <header>
+                    <nav>
+                        <a href="index.html">Home</a>
+                        <a href="projects.html">Projects</a>
+                        <a href="mmdh.html">Man met de Hamer</a>
+                    </nav>
+                    <span>
+                        <p>|</p>
+                    </span>
+                </header>
 
-        <section>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="projects.html">Projects</a>
-                <a href="mmdh.html">Man met de Hamer</a>
-            </nav>
-            <h1>Titel project</h1>
-        </section>
-      </div>
+                <h1>De man met de Hamer</h1>
+                <div class="general-data">
+                    <h2 class="visually-hidden">Some introductory details about this project</h2>
+                    <div>
+                        <h3>Project brief</h3>
+                        <p>This is a short brief about what we needed to create for the Man with the Hamer, he was
+                            looking for a crazy funky website.</p>
+                    </div>
+                    <div>
+                        <h3>My contribution</h3>
+                        <p>My main contribution to his website is the landing page, for this I employed many different
+                            css techniques.</p>
+                    </div>
+                    <div>
+                        <h3>Metadata</h3>
+                        <ul role="list">
+                            <li>Grade: 10</li>
+                            <li>Date: ...</li>
+                            <li>Subject: ...</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-container">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis reiciendis, in esse officiis
+                        eaque id
+                        aperiam consequuntur nihil, fugiat iure culpa! Fugit quam quasi odit omnis nam, quas itaque
+                        error.
+                        Lorem
+                        ipsum dolor sit amet, consectetur adipisicing elit. Nobis reiciendis, in esse officiis eaque id
+                        aperiam
+                        consequuntur nihil, fugiat iure culpa! Fugit quam quasi odit omnis nam, quas itaque error. Lorem
+                        ipsum
+                        dolor sit amet, consectetur adipisicing elit. Nobis reiciendis, in esse officiis eaque id
+                        aperiam
+                        consequuntur nihil, fugiat iure culpa! Fugit quam quasi odit omnis nam, quas itaque error. Lorem
+                        ipsum
+                        dolor sit amet, consectetur adipisicing elit. Nobis reiciendis, in esse officiis eaque id
+                        aperiam
+                        consequuntur nihil, fugiat iure culpa! Fugit quam quasi odit omnis nam, quas itaque error. Lorem
+                        ipsum
+                        dolor sit amet, consectetur adipisicing elit. Nobis reiciendis, in esse officiis eaque id
+                        aperiam
+                        consequuntur nihil, fugiat iure culpa! Fugit quam quasi odit omnis nam, quas itaque error. Lorem
+                        ipsum
+                        dolor sit amet, consectetur adipisicing elit. Nobis reiciendis, in esse officiis eaque id
+                        aperiam
+                        consequuntur nihil, fugiat iure culpa! Fugit quam quasi odit omnis nam, quas itaque error. Lorem
+                        ipsum
+                        dolor sit amet, consectetur adipisicing elit. Nobis reiciendis, in esse officiis eaque id
+                        aperiam
+                        consequuntur nihil, fugiat iure culpa! Fugit quam quasi odit omnis nam, quas itaque error. Lorem
+                        ipsum
+                        dolor sit amet, consectetur adipisicing elit. Nobis reiciendis, in esse officiis eaque id
+                        aperiam
+                        consequuntur nihil, fugiat iure culpa! Fugit quam quasi odit omnis nam, quas itaque error. Lorem
+                        ipsum
+                        dolor sit amet, consectetur adipisicing elit. Nobis reiciendis, in esse officiis eaque id
+                        aperiam
+                        consequuntur nihil, fugiat iure culpa! Fugit qua.
+                    </p>
+                </div>
+            </section>
+        </main>
+    </div>
 
     <svg style="position: fixed;">
         <defs>
@@ -58,12 +129,15 @@
             <filter id="pixelate-mosaic" x="0%" y="0%" width="100%" height="100%">
                 <!--Thanks to Zoltan Fegyver for figuring out pixelation and producing the awesome pixelation map. -->
                 <feGaussianBlur stdDeviation="0.5" in="SourceGraphic" result="smoothed" />
-                <feImage width="4" height="4" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAWSURBVAgdY1ywgOEDAwKxgJhIgFQ+AP/vCNK2s+8LAAAAAElFTkSuQmCC" result="displacement-map" />
+                <feImage width="4" height="4"
+                    xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAWSURBVAgdY1ywgOEDAwKxgJhIgFQ+AP/vCNK2s+8LAAAAAElFTkSuQmCC"
+                    result="displacement-map" />
                 <feTile in="displacement-map" result="pixelate-map" />
-                <feDisplacementMap in="smoothed" in2="pixelate-map" xChannelSelector="R" yChannelSelector="G" scale="12" result="pre-final" />
+                <feDisplacementMap in="smoothed" in2="pixelate-map" xChannelSelector="R" yChannelSelector="G" scale="12"
+                    result="pre-final" />
                 <feComposite operator="in" in2="SourceGraphic" />
             </filter>
-            
+
             <filter id="pixelate100" x="0" y="0">
                 <feFlood x="1" y="1" height="0.5" width="0.5" />
                 <feComposite width="2" height="2" />

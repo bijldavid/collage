@@ -27,6 +27,10 @@ ol:not([role="list"]), ul:not([role="list"]) {
   list-style-type: none;
 }
 
+ol[role="list"], ul[role="list"] {
+  padding-left: 1rem;
+}
+
 a:not([role="inline-link"]) {
   text-decoration: none;
 }
