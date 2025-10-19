@@ -11,3 +11,10 @@
     font-weight: 600;
     src: url(../fonts/6298e0ab25185e415946c4ab_HafferXH-SemiBold\ 2.woff2);
 }
+
+@font-face {
+    font-family: 'rm-mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../fonts/RM-Mono.woff2);
+}
