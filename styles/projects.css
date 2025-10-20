@@ -240,7 +240,7 @@ section h1 {
 .content-container > ul > li::before {
     position: absolute;
     content: '';
-    height: calc((var(--text-padding) * 2) + var(--font-size));
+    height: calc((var(--text-padding) * 2) + var(--font-size) + var(--container-padding));
     width: var(--font-size);
     background: var(--backdrop-200);
     bottom: 0;
@@ -304,11 +304,11 @@ section h1 {
 }
 
 .content-container > ul > li:nth-of-type(1) .cover {
-    background-image: url(../images/mmdh_thumbnail2.png);
+    background-image: url(../images/mmdh_thumbnail.png);
 }
 
 .content-container > ul > li:nth-of-type(2) .cover {
-    background-image: url(../images/css_cat_thumbnail2.png);
+    background-image: url(../images/csscat_thumbnail.png);
 }
 
 .content-container > ul > li:nth-of-type(3) .cover {
