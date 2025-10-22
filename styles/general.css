@@ -5,8 +5,10 @@
     --backdrop-100: #fdf1de;
     --backdrop-200: #e7d7be;
     --backdrop-300: #d1c0a6;
+    --backdrop-400: #aa9b85;
 
-    --border: #790c0c;
+    --border-400: #790c0c;
+    --border-600: #4a1010;
 }
 
 ::selection {

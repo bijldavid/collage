@@ -60,7 +60,7 @@ main > section {
     margin-block: 10rem;
     padding: 5rem;
     background-color: var(--backdrop-200);
-    border: 2px solid var(--border);
+    border: 2px solid var(--border-400);
 }
 
 /* -=-=-=-=-=-=-=-=-=- */
@@ -73,7 +73,7 @@ section header {
     left: 0;
     display: flex;
     width: 100%;
-    box-shadow: 0 2px var(--border);
+    box-shadow: 0 2px var(--border-400);
 }
 
 section header nav {
@@ -89,7 +89,7 @@ section header nav {
 }
 
 section header nav a {
-    color: var(--border);
+    color: var(--border-400);
 }
 
 section header nav a:hover {
@@ -131,11 +131,11 @@ section header span {
     border-left: 5px solid var(--backdrop-100);
     border-right: 5px solid var(--backdrop-300);
     border-bottom: 5px solid var(--backdrop-300);
-    box-shadow: -2px 0 var(--border);
+    box-shadow: -2px 0 var(--border-400);
 }
 
 section header span p {
-    color: var(--border);
+    color: var(--border-400);
     animation: spin 3s steps(1) infinite;
 }
 
@@ -184,9 +184,9 @@ section h1 {
 
     width: 100%;
     box-shadow: 
-    0 3px var(--border), 
+    0 3px var(--border-400), 
     0 5px var(--backdrop-200),
-    0 15px var(--border);
+    0 15px var(--border-400);
     margin-bottom: calc(15px + 2rem);
 }
 
@@ -228,7 +228,7 @@ section .general-data div:last-of-type {
 }
 
 section .general-data div:not(:last-child) {
-    border-right: 2px solid var(--border);
+    border-right: 2px solid var(--border-400);
 }
 
 section .general-data div * {
@@ -238,7 +238,7 @@ section .general-data div * {
 
 section .general-data div h3 {
     font-weight: 600;
-    color: var(--border);
+    color: var(--border-400);
     margin-bottom: .5rem;
 }
 
@@ -250,10 +250,13 @@ section .general-data div h3 {
 section .content-container {
     margin-top: 2rem;
     padding-top: 2rem;
-    border-top: var(--border) 2px solid;
+
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
+    background-color: var(--backdrop-100);
+    padding: 2rem;
+    border: 2px solid var(--border-400);
 }
 
 section .content-container * {
@@ -264,12 +267,14 @@ section .content-container * {
 section .content-container .section-1 {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 2rem;  
+    gap: 2rem;
 }
 
 section .content-container .section-1 figure {
     position: relative;
-    border: var(--border) 2px solid;
+    border: var(--border-400) 2px solid;
+    height: max-content;
+    align-self: center;
 }
 
 section .content-container .section-1 figure::before {
@@ -278,7 +283,7 @@ section .content-container .section-1 figure::before {
     top: 0;
     right: 0;
     height: 3rem;
-    background-color: var(--backdrop-200);
+    background-color: var(--backdrop-100);
     aspect-ratio: 1;
 }
 
@@ -298,7 +303,7 @@ section .content-container .section-1 figure::after {
     border-left: 5px solid var(--backdrop-100);
     border-right: 5px solid var(--backdrop-300);
     border-bottom: 5px solid var(--backdrop-300);
-    outline: 2px var(--border) solid;
+    outline: 2px var(--border-400) solid;
 }
 
 section .content-container .section-1 figure img {
@@ -307,5 +312,5 @@ section .content-container .section-1 figure img {
 
 section .content-container .section-1 figure figcaption {
     padding: 1rem;
-    border-top: 2px solid var(--border);
+    border-top: 2px solid var(--border-400);
 }

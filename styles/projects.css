@@ -64,23 +64,23 @@ main>section {
     margin-block: 10rem;
     padding: 5rem;
     background-color: var(--backdrop-200);
-    border: 2px solid var(--border);
+    border: 2px solid var(--border-400);
 }
 
 /* -=-=-=-=-=-=-=-=-=- */
 /* header */
 /* -=-=-=-=-=-=-=-=-=- */
 
-section header {
+section > header {
     position: absolute;
     top: 0;
     left: 0;
     display: flex;
     width: 100%;
-    box-shadow: 0 2px var(--border);
+    box-shadow: 0 2px var(--border-400);
 }
 
-section header nav {
+section > header nav {
     --flex-gap: 2rem;
     display: flex;
     width: calc(100% - 42px - 2px);
@@ -92,24 +92,24 @@ section header nav {
     border-bottom: 5px solid var(--backdrop-300);
 }
 
-section header nav a {
-    color: var(--border);
+section > header nav a {
+    color: var(--border-400);
 }
 
-section header nav a:hover {
+section > header nav a:hover {
     background: #00000020;
 }
 
-section header nav a:focus-visible {
+section > header nav a:focus-visible {
     background: #790c0c3b;
     outline: none;
 }
 
-section header nav a:not(:last-of-type) {
+section > header nav a:not(:last-of-type) {
     position: relative;
 }
 
-section header nav a:not(:last-of-type)::after {
+section > header nav a:not(:last-of-type)::after {
     position: absolute;
     content: '>';
     height: 16px;
@@ -121,11 +121,11 @@ section header nav a:not(:last-of-type)::after {
     pointer-events: none;
 }
 
-section header nav a:last-of-type {
-    text-decoration: underline wavy;
+section > header nav a:last-of-type {
+    text-decoration: underline;
 }
 
-section header span {
+section > header span {
     margin-inline-start: auto;
     display: block;
     width: 42px;
@@ -135,11 +135,11 @@ section header span {
     border-left: 5px solid var(--backdrop-100);
     border-right: 5px solid var(--backdrop-300);
     border-bottom: 5px solid var(--backdrop-300);
-    box-shadow: -2px 0 var(--border);
+    box-shadow: -2px 0 var(--border-400);
 }
 
-section header span p {
-    color: var(--border);
+section > header span p {
+    color: var(--border-400);
     animation: spin 3s steps(1) infinite;
 }
 
@@ -197,9 +197,12 @@ section h1 {
     margin-bottom: 2rem;
 }
 
+
+
+
 .content-container {
-    --width: 17.5rem;
-    --height: 17.5rem;
+    --width: 17rem;
+    --height: 17rem;
   
     --container-padding: 1rem;
     --text-padding: 1rem;
@@ -211,14 +214,133 @@ section h1 {
     --n-skew-angle: calc(var(--skew-angle) * -1);
 
     isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: var(--backdrop-100);
+    padding: 2rem;
+    border: 2px solid var(--border-400);
 }
 
+
+/* -=-=-=-=-=-=-=-=-=- */
+/* filter */
+/* -=-=-=-=-=-=-=-=-=- */
+
+.content-container header {
+    width: max-content;
+    height: calc(16px + (.5rem * 2) + (5px * 2));
+    border: 2px solid var(--border-400);
+    display: flex;
+    gap: 2px;
+    background: var(--backdrop-200);
+}
+
+.content-container header button {
+    display: block;
+    appearance: none;
+    height: 100%;
+    aspect-ratio: 1;
+    border: none;
+    background: transparent;
+    outline: 2px solid var(--border-400);
+    margin-inline-start: auto;
+
+    border-top: 5px solid var(--backdrop-100);
+    border-left: 5px solid var(--backdrop-100);
+    border-right: 5px solid var(--backdrop-300);
+    border-bottom: 5px solid var(--backdrop-300);
+    padding: .3rem;
+}
+
+.content-container header button:active {
+    border-right: 5px solid var(--backdrop-100);
+    border-bottom: 5px solid var(--backdrop-100);
+    border-top: 5px solid var(--backdrop-300);
+    border-left: 5px solid var(--backdrop-300);
+}
+
+.content-container header input {
+    height: 100%;
+    aspect-ratio: 1;
+    appearance: none;
+    outline: 2px solid var(--border-400);
+    border-top: 5px solid var(--backdrop-100);
+    border-left: 5px solid var(--backdrop-100);
+    border-right: 5px solid var(--backdrop-300);
+    border-bottom: 5px solid var(--backdrop-300);
+
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
+}
+
+.content-container header input:nth-of-type(1) {
+    background-image: url(../images/list-view.svg);
+}
+
+.content-container header input:nth-of-type(2) {
+    background-image: url(../images/grid-view.svg);
+}
+
+.content-container header input:checked {
+    border-right: 5px solid var(--backdrop-100);
+    border-bottom: 5px solid var(--backdrop-100);
+    border-top: 5px solid var(--backdrop-300);
+    border-left: 5px solid var(--backdrop-300);
+}
+
+.content-container:has(input:nth-of-type(1):checked) {
+    --width: 10rem;
+    --height: 10rem;
+}
+
+.content-container:has(input:nth-of-type(1):checked) > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.content-container:has(input:nth-of-type(1):checked) > ul > li {
+    position: relative;
+}
+
+.content-container:has(input:nth-of-type(1):checked) > ul > li:not(:last-of-type)::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 0;
+    width: 100%;
+    height: 2px; 
+    background-color: var(--border-400);
+}
+
+.content-container:has(input:nth-of-type(1):checked) > ul > li a {
+    border: 2px solid var(--border-400);
+    width: max-content;
+}
+
+.content-container:has(input:nth-of-type(1):checked) > ul li p {
+    display: none;
+}
+
+.content-container:has(input:nth-of-type(1):checked) .details ul {
+    display: none;
+}
+
+.content-container:has(input:nth-of-type(1):checked) .details img:nth-of-type(1) {
+    top: 50%;
+}
+
+/* -=-=-=-=-=-=-=-=-=- */
+/* items */
+/* -=-=-=-=-=-=-=-=-=- */
 
 .content-container > ul {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(3, calc(var(--width) + (var(--container-padding) * 2)));
-    gap: 2rem;
+    gap: 2rem calc((100% - ((var(--width) + (var(--container-padding) * 2)) * 3)) / 2);
 }
 
 @media (max-width: 1265px) {
@@ -226,23 +348,25 @@ section h1 {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        gap: 2rem;
     }
 }
 
-.content-container > ul > li {
+.content-container > ul > li a {
+    display: block;
     position: relative;
     border-bottom: none;
-    border-top: 2px solid var(--border);
-    border-left: 2px solid var(--border);
+    border-top: 2px solid var(--border-400);
+    border-left: 2px solid var(--border-400);
     padding: var(--container-padding);
 }
 
-.content-container > ul > li::before {
+.content-container > ul > li a::before {
     position: absolute;
     content: '';
     height: calc((var(--text-padding) * 2) + var(--font-size) + var(--container-padding));
     width: var(--font-size);
-    background: var(--backdrop-200);
+    background: var(--backdrop-100);
     bottom: 0;
     right: 0;
 }
@@ -253,7 +377,7 @@ section h1 {
     position: absolute;
     bottom: 0;
     right: calc(((var(--font-size) + (var(--text-padding) * 2)) * tan(var(--p-skew-angle))) / 2);
-    background: var(--backdrop-200);
+    background: var(--backdrop-100);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -261,19 +385,19 @@ section h1 {
     font-size: var(--font-size);
     padding: var(--text-padding);
 
-    box-shadow: calc(var(--container-padding) * -1) calc(var(--container-padding) * -1) var(--backdrop-200);
-    border-left: 2px solid var(--border);
-    border-top: 2px solid var(--border);
+    box-shadow: calc(var(--container-padding) * -1) calc(var(--container-padding) * -1) var(--backdrop-100);
+    border-left: 2px solid var(--border-400);
+    border-top: 2px solid var(--border-400);
 
     transform: skew(var(--n-skew-angle));
 
-    color: var(--border);
+    color: var(--border-400);
 }
 
 .content-container > ul > li a > p::before {
     position: absolute;
     content: "";
-    background: var(--border);
+    background: var(--border-400);
     bottom: 0;
     left: 0;
     height: 2px;
@@ -285,7 +409,7 @@ section h1 {
 .content-container > ul > li a > p::after {
     position: absolute;
     content: "";
-    background: var(--border);
+    background: var(--border-400);
     top: 0;
     right: calc(((var(--height) + (var(--container-padding) * 2) - var(--font-size) - (var(--text-padding) * 2)) * tan(var(--p-skew-angle))) / 2 - 1px);
     height: calc(var(--height) + (var(--container-padding) * 2) - var(--font-size) - (var(--text-padding) * 2) + 2px);
@@ -294,7 +418,7 @@ section h1 {
     transform: skew(var(--p-skew-angle));
 }
 
-.content-container > ul > li .cover {
+.content-container > ul > li a .cover {
     width: var(--width);
     height: var(--height);
     background-image: url(../images/mannen_met_de_code.png);
@@ -303,28 +427,28 @@ section h1 {
     background-repeat: no-repeat;
 }
 
-.content-container > ul > li:nth-of-type(1) .cover {
-    background-image: url(../images/mmdh_thumbnail.png);
+.content-container > ul > li:nth-of-type(1) a .cover {
+    background-image: url(../images/mmdh_thumbnail3.png);
 }
 
-.content-container > ul > li:nth-of-type(2) .cover {
-    background-image: url(../images/csscat_thumbnail.png);
+.content-container > ul > li:nth-of-type(2) a .cover {
+    background-image: url(../images/csscat_thumbnail3.png);
 }
 
-.content-container > ul > li:nth-of-type(3) .cover {
+.content-container > ul > li:nth-of-type(3) a .cover {
     background-image: url(../images/nsform_thumbnail2.png);
 }
 
-.content-container > ul > li:nth-of-type(4) .cover {
-    background-image: url(../images/nsform_thumbnail2.png);
+.content-container > ul > li:nth-of-type(4) a .cover {
+    background-image: url(../images/nsform_thumbnail.png);
 }
 
-.content-container > ul > li .cover .details {
+.content-container > ul > li a .cover .details {
     position: relative;
     height: 100%;
     width: 100%;
 
-    background: var(--backdrop-300);
+    background: var(--backdrop-200);
     mask-mode: alpha;
     mask-image: radial-gradient(circle at center center,
             black calc(var(--width) / 2),
@@ -337,11 +461,11 @@ section h1 {
     transition: mask-position 0.5s cubic-bezier(0.85, 0.09, 0.15, 0.91);
 }
 
-.content-container > ul > li .cover:hover .details {
+.content-container > ul > li:hover a .cover .details {
     mask-position: center calc((var(--height) + (var(--height) / 2)) * -1);
 }
 
-.content-container > ul > li .cover .details ul {
+.content-container > ul > li a .cover .details ul {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -351,18 +475,18 @@ section h1 {
     padding: 1rem;
 }
 
-.content-container > ul > li .cover .details ul li {
+.content-container > ul > li a .cover .details ul li {
     font-family: 'rm-mono';
     font-size: .75rem;
-    color: var(--border);
+    color: var(--border-400);
 }
 
-.content-container > ul > li .cover .details ul li span {
-    background-color: var(--backdrop-200);
+.content-container > ul > li a .cover .details ul li span {
+    background-color: var(--backdrop-100);
 }
 
 
-.content-container > ul > li .cover .details img:nth-of-type(1) {
+.content-container > ul > li a .cover .details img:nth-of-type(1) {
     z-index: -1;
     filter: url(#pixelate200);
     position: absolute;
