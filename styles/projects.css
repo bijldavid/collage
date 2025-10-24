@@ -216,6 +216,7 @@ section h1::before {
 
 
 .content-container {
+    /* /////////////////////// variables /////////////////////// */
     --width: 17rem;
     --height: 17rem;
 
@@ -227,6 +228,10 @@ section h1::before {
     --skew-angle: 20deg;
     --p-skew-angle: calc(var(--skew-angle) * 1);
     --n-skew-angle: calc(var(--skew-angle) * -1);
+
+
+
+
 
     isolation: isolate;
     display: flex;
