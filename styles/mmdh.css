@@ -16,32 +16,19 @@
 }
 
 .scene .background {
-    position: absolute;
-    --size: 400;
-
-    height: calc(var(--size) * 1%);
-    width: calc(var(--size) * 1%);
-    top: calc((var(--size) - 100) * -0.5%);
-    left: calc((var(--size) - 100) * -0.5%);
-
-    display: grid;
-    place-items: center;
-    translate: 0 0 -450px;
-    rotate: x 0deg;
-
+    height: 100%;
+    width: 100%;
     background:
         repeating-linear-gradient(transparent,
-            transparent 120px,
-            var(--background-grid) 120px,
-            var(--background-grid) 130px),
+            transparent 40px,
+            var(--background-grid) 40px,
+            var(--background-grid) 41px),
         repeating-linear-gradient(90deg,
             transparent,
-            transparent 120px,
-            var(--background-grid) 120px,
-            var(--background-grid) 130px),
+            transparent 40px,
+            var(--background-grid) 40px,
+            var(--background-grid) 41px),
         var(--background-solid);
-
-    transition: rotate 1s ease;
 }
 
 
@@ -57,7 +44,7 @@ main > section {
     position: relative;
     max-width: 1200px;
     margin-inline: auto;
-    margin-block: 10rem;
+    margin-block: 5rem;
     padding: 5rem;
     background-color: var(--backdrop-200);
     border: 2px solid var(--border-400);
@@ -268,6 +255,12 @@ section .content-container .section-1 {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 2rem;
+}
+
+section .content-container .section-1 div {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
 }
 
 section .content-container .section-1 figure {

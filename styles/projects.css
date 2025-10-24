@@ -16,32 +16,19 @@
 }
 
 .scene .background {
-    position: absolute;
-    --size: 400;
-
-    height: calc(var(--size) * 1%);
-    width: calc(var(--size) * 1%);
-    top: calc((var(--size) - 100) * -0.5%);
-    left: calc((var(--size) - 100) * -0.5%);
-
-    display: grid;
-    place-items: center;
-    translate: 0 0 -450px;
-    rotate: x 0deg;
-
+    height: 100%;
+    width: 100%;
     background:
         repeating-linear-gradient(transparent,
-            transparent 120px,
-            var(--background-grid) 120px,
-            var(--background-grid) 130px),
+            transparent 40px,
+            var(--background-grid) 40px,
+            var(--background-grid) 41px),
         repeating-linear-gradient(90deg,
             transparent,
-            transparent 120px,
-            var(--background-grid) 120px,
-            var(--background-grid) 130px),
+            transparent 40px,
+            var(--background-grid) 40px,
+            var(--background-grid) 41px),
         var(--background-solid);
-
-    transition: rotate 1s ease;
 }
 
 
@@ -53,7 +40,7 @@
 /* Content block */
 /* o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0oo0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o */
 
-main { 
+main {
     padding-inline: 3rem;
 }
 
@@ -61,7 +48,7 @@ main>section {
     position: relative;
     max-width: 1200px;
     margin-inline: auto;
-    margin-block: 10rem;
+    margin-block: 5rem;
     padding: 5rem;
     background-color: var(--backdrop-200);
     border: 2px solid var(--border-400);
@@ -71,7 +58,7 @@ main>section {
 /* header */
 /* -=-=-=-=-=-=-=-=-=- */
 
-section > header {
+section>header {
     position: absolute;
     top: 0;
     left: 0;
@@ -80,7 +67,7 @@ section > header {
     box-shadow: 0 2px var(--border-400);
 }
 
-section > header nav {
+section>header nav {
     --flex-gap: 2rem;
     display: flex;
     width: calc(100% - 42px - 2px);
@@ -92,24 +79,24 @@ section > header nav {
     border-bottom: 5px solid var(--backdrop-300);
 }
 
-section > header nav a {
+section>header nav a {
     color: var(--border-400);
 }
 
-section > header nav a:hover {
+section>header nav a:hover {
     background: #00000020;
 }
 
-section > header nav a:focus-visible {
+section>header nav a:focus-visible {
     background: #790c0c3b;
     outline: none;
 }
 
-section > header nav a:not(:last-of-type) {
+section>header nav a:not(:last-of-type) {
     position: relative;
 }
 
-section > header nav a:not(:last-of-type)::after {
+section>header nav a:not(:last-of-type)::after {
     position: absolute;
     content: '>';
     height: 16px;
@@ -121,11 +108,11 @@ section > header nav a:not(:last-of-type)::after {
     pointer-events: none;
 }
 
-section > header nav a:last-of-type {
+section>header nav a:last-of-type {
     text-decoration: underline;
 }
 
-section > header span {
+section>header span {
     margin-inline-start: auto;
     display: block;
     width: 42px;
@@ -138,7 +125,7 @@ section > header span {
     box-shadow: -2px 0 var(--border-400);
 }
 
-section > header span p {
+section>header span p {
     color: var(--border-400);
     animation: spin 3s steps(1) infinite;
 }
@@ -191,10 +178,38 @@ section h1 {
     filter: url(#pixelate100);
     font-size: 5rem;
     padding-bottom: .5rem;
+    padding-inline-start: calc(5rem + 1rem);
     color: #790c0c;
 
     width: 100%;
-    margin-bottom: 2rem;
+    box-shadow: 
+    0 3px var(--border-400), 
+    0 5px var(--backdrop-200),
+    0 15px var(--border-400);
+    margin-bottom: calc(15px + 2rem);
+}
+
+section h1::before {
+    content: '';
+    background-image: url(../images/design.svg);
+    background-size: 75%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: calc(100% - .5rem);
+    width: 5rem;
+    animation: spin 12s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        rotate: z 0deg;
+    }
+    100% {
+        rotate: z 360deg;
+    }
 }
 
 
@@ -203,12 +218,12 @@ section h1 {
 .content-container {
     --width: 17rem;
     --height: 17rem;
-  
+
     --container-padding: 1rem;
     --text-padding: 1rem;
-  
+
     --font-size: 1rem;
-  
+
     --skew-angle: 20deg;
     --p-skew-angle: calc(var(--skew-angle) * 1);
     --n-skew-angle: calc(var(--skew-angle) * -1);
@@ -260,6 +275,11 @@ section h1 {
     border-left: 5px solid var(--backdrop-300);
 }
 
+
+/* -=-=-=-=-=-=-=-=-=- */
+/* grid / list */
+/* -=-=-=-=-=-=-=-=-=- */
+
 .content-container header input {
     height: 100%;
     aspect-ratio: 1;
@@ -295,32 +315,80 @@ section h1 {
     --height: 10rem;
 }
 
-.content-container:has(input:nth-of-type(1):checked) > ul {
+.content-container:has(input:nth-of-type(1):checked)>ul {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
-.content-container:has(input:nth-of-type(1):checked) > ul > li {
+.content-container:has(input:nth-of-type(1):checked)>ul>li {
     position: relative;
+    display: flex;
+    transition: background-color .25s ease;
 }
 
-.content-container:has(input:nth-of-type(1):checked) > ul > li:not(:last-of-type)::after {
+.content-container:has(input:nth-of-type(1):checked)>ul>li .list-details {
+    margin-inline-start: 1rem;
+    padding: 1rem;
+    width: 100%;
+    display: flex !important;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--backdrop-200);
+    transition: background-color .3s ease;
+}
+
+.content-container:has(input:nth-of-type(1):checked)>ul>li:hover .list-details {
+    background-color: var(--backdrop-100);
+}
+
+.content-container:has(input:nth-of-type(1):checked)>ul>li .list-details p {
+    color: var(--border-400);
+}
+
+.content-container:has(input:nth-of-type(1):checked)>ul>li .list-details ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: .5rem;
+}
+
+.content-container:has(input:nth-of-type(1):checked)>ul>li .list-details ul li {
+    font-family: 'rm-mono';
+    font-size: .75rem;
+    color: var(--border-400);
+}
+
+.content-container:has(input:nth-of-type(1):checked)>ul>li .list-details ul li span {
+    background-color: var(--backdrop-300);
+    transition: background-color .3s ease;
+}
+
+.content-container:has(input:nth-of-type(1):checked)>ul>li:hover .list-details ul li span {
+    background-color: var(--backdrop-200);
+}
+
+
+.content-container:has(input:nth-of-type(1):checked)>ul>li:not(:last-of-type)::after {
     content: '';
     position: absolute;
     bottom: -1rem;
     left: 0;
     width: 100%;
-    height: 2px; 
+    height: 2px;
     background-color: var(--border-400);
 }
 
-.content-container:has(input:nth-of-type(1):checked) > ul > li a {
+.content-container:has(input:nth-of-type(1):checked)>ul>li a {
     border: 2px solid var(--border-400);
     width: max-content;
 }
 
-.content-container:has(input:nth-of-type(1):checked) > ul li p {
+.content-container:has(input:nth-of-type(1):checked)>ul>li a::before {
+    display: none;
+}
+
+.content-container:has(input:nth-of-type(1):checked)>ul>li a>p {
     display: none;
 }
 
@@ -336,7 +404,7 @@ section h1 {
 /* items */
 /* -=-=-=-=-=-=-=-=-=- */
 
-.content-container > ul {
+.content-container>ul {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(3, calc(var(--width) + (var(--container-padding) * 2)));
@@ -344,7 +412,7 @@ section h1 {
 }
 
 @media (max-width: 1265px) {
-    .content-container > ul {
+    .content-container>ul {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -352,7 +420,11 @@ section h1 {
     }
 }
 
-.content-container > ul > li a {
+.content-container>ul>li .list-details {
+    display: none;
+}
+
+.content-container>ul>li a {
     display: block;
     position: relative;
     border-bottom: none;
@@ -361,7 +433,7 @@ section h1 {
     padding: var(--container-padding);
 }
 
-.content-container > ul > li a::before {
+.content-container>ul>li a::before {
     position: absolute;
     content: '';
     height: calc((var(--text-padding) * 2) + var(--font-size) + var(--container-padding));
@@ -371,7 +443,7 @@ section h1 {
     right: 0;
 }
 
-.content-container > ul > li a > p {
+.content-container>ul>li a>p {
     box-sizing: content-box;
     z-index: 1;
     position: absolute;
@@ -394,7 +466,7 @@ section h1 {
     color: var(--border-400);
 }
 
-.content-container > ul > li a > p::before {
+.content-container>ul>li a>p::before {
     position: absolute;
     content: "";
     background: var(--border-400);
@@ -406,7 +478,7 @@ section h1 {
     transform: skew(var(--p-skew-angle));
 }
 
-.content-container > ul > li a > p::after {
+.content-container>ul>li a>p::after {
     position: absolute;
     content: "";
     background: var(--border-400);
@@ -418,7 +490,7 @@ section h1 {
     transform: skew(var(--p-skew-angle));
 }
 
-.content-container > ul > li a .cover {
+.content-container>ul>li a .cover {
     width: var(--width);
     height: var(--height);
     background-image: url(../images/mannen_met_de_code.png);
@@ -427,23 +499,23 @@ section h1 {
     background-repeat: no-repeat;
 }
 
-.content-container > ul > li:nth-of-type(1) a .cover {
+.content-container>ul>li:nth-of-type(1) a .cover {
     background-image: url(../images/mmdh_thumbnail3.png);
 }
 
-.content-container > ul > li:nth-of-type(2) a .cover {
+.content-container>ul>li:nth-of-type(2) a .cover {
     background-image: url(../images/csscat_thumbnail3.png);
 }
 
-.content-container > ul > li:nth-of-type(3) a .cover {
+.content-container>ul>li:nth-of-type(3) a .cover {
     background-image: url(../images/nsform_thumbnail2.png);
 }
 
-.content-container > ul > li:nth-of-type(4) a .cover {
+.content-container>ul>li:nth-of-type(4) a .cover {
     background-image: url(../images/nsform_thumbnail.png);
 }
 
-.content-container > ul > li a .cover .details {
+.content-container>ul>li a .cover .details {
     position: relative;
     height: 100%;
     width: 100%;
@@ -461,11 +533,11 @@ section h1 {
     transition: mask-position 0.5s cubic-bezier(0.85, 0.09, 0.15, 0.91);
 }
 
-.content-container > ul > li:hover a .cover .details {
+.content-container>ul>li:hover a .cover .details {
     mask-position: center calc((var(--height) + (var(--height) / 2)) * -1);
 }
 
-.content-container > ul > li a .cover .details ul {
+.content-container>ul>li a .cover .details ul {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -475,18 +547,18 @@ section h1 {
     padding: 1rem;
 }
 
-.content-container > ul > li a .cover .details ul li {
+.content-container>ul>li a .cover .details ul li {
     font-family: 'rm-mono';
     font-size: .75rem;
     color: var(--border-400);
 }
 
-.content-container > ul > li a .cover .details ul li span {
+.content-container>ul>li a .cover .details ul li span {
     background-color: var(--backdrop-100);
 }
 
 
-.content-container > ul > li a .cover .details img:nth-of-type(1) {
+.content-container>ul>li a .cover .details img:nth-of-type(1) {
     z-index: -1;
     filter: url(#pixelate200);
     position: absolute;
