@@ -182,11 +182,12 @@ section h1 {
     color: #790c0c;
 
     width: 100%;
-    box-shadow: 
+    /* box-shadow: 
     0 3px var(--border-400), 
     0 5px var(--backdrop-200),
     0 15px var(--border-400);
-    margin-bottom: calc(15px + 2rem);
+    margin-bottom: calc(15px + 2rem); */
+    margin-bottom: 2rem;
 }
 
 section h1::before {

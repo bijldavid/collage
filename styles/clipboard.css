@@ -1,0 +1,301 @@
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/*                                                                  CLIPBOARD                                                                            */
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+.clipboard div {
+    position: absolute;
+    background-color: #93775b;
+}
+
+.clipboard {
+    --animation-duration: 10s;
+
+    --x: 50cqw;
+    --y: 4cqw;
+    --z: 75cqw;
+}
+
+.clipboard-model {
+    translate: 0 10cqw;
+    transform: rotateY(10deg) rotateX(-90deg);
+    transition: transform 1s ease;
+}
+
+
+ul li:nth-of-type(2) .rotator {
+    /* animation: spin-clipboard var(--animation-duration) linear infinite; */
+
+}
+
+/* ul li:nth-of-type(2):hover .clipboard-model {
+    transform: rotateZ(60deg);
+} */
+
+@keyframes spin-clipboard {
+    0% {
+        transform: rotateX(0) rotateY(10deg);
+    }
+
+    100% {
+        transform: rotateX(360deg) rotateY(10deg);
+    }
+}
+
+/* ========================== */
+/* SHADING */
+/* ========================== */
+
+.clipboard-model div::before {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #000;
+}
+
+/* front */
+.clipboard-model div:nth-of-type(1)::before {
+    opacity: .15;
+    transition: opacity .6s linear;
+}
+
+/* back */
+.clipboard-model div:nth-of-type(2)::before {
+    opacity: .4;
+    transition: opacity .6s linear;
+}
+
+/* top */
+.clipboard-model div:nth-of-type(3)::before {
+    opacity: 0;
+    transition: opacity .6s linear;
+}
+
+/* bottom */
+.clipboard-model div:nth-of-type(4)::before {
+    opacity: 0.6;
+    transition: opacity .6s linear;
+}
+
+/* left right */
+.clipboard-model div:nth-of-type(5)::before,
+.clipboard-model div:nth-of-type(6)::before {
+    opacity: .3;
+    transition: opacity .6s linear;
+}
+
+
+/* ============================================================================== */
+/* BOARD */
+/* ============================================================================== */
+
+/* front */
+.clipboard-model>div:nth-of-type(1) {
+    width: var(--x);
+    height: var(--y);
+    translate: calc(var(--x) / -2) calc(var(--y) / -2) calc(var(--z) / 2);
+}
+
+/* back */
+.clipboard-model>div:nth-of-type(2) {
+    width: var(--x);
+    height: var(--y);
+    translate: calc(var(--x) / -2) calc(var(--y) / -2) calc(var(--z) / -2);
+}
+
+/* top */
+.clipboard-model>div:nth-of-type(3) {
+    width: var(--x);
+    height: var(--z);
+    transform-origin: top;
+    rotate: x 90deg;
+    translate: calc(var(--x) / -2) calc(var(--y) / -2) calc(var(--z) / -2);
+}
+
+/* bottom */
+.clipboard-model>div:nth-of-type(4) {
+    width: var(--x);
+    height: var(--z);
+    transform-origin: top;
+    rotate: x 90deg;
+    translate: calc(var(--x) / -2) calc(var(--y) / 2) calc(var(--z) / -2);
+}
+
+/* left */
+.clipboard-model>div:nth-of-type(5) {
+    width: var(--z);
+    height: var(--y);
+    transform-origin: left;
+    rotate: y 90deg;
+    translate: calc(var(--x) / -2) calc(var(--y) / -2) calc(var(--z) / 2);
+}
+
+/* right */
+.clipboard-model>div:nth-of-type(6) {
+    width: var(--z);
+    height: var(--y);
+    transform-origin: left;
+    rotate: y 90deg;
+    translate: calc(var(--x) / 2) calc(var(--y) / -2) calc(var(--z) / 2);
+}
+
+
+
+/* ============================================================================== */
+/* CLIP */
+/* ============================================================================== */
+
+
+.clipboard-model .clip {
+    width: calc(var(--x) / 3);
+    height: calc(var(--z) / 12);
+    top: 0;
+    left: 50%;
+    translate: -50%;
+}
+
+.clipboard-model .clip>div {
+    background-color: #bc9a3c;
+}
+
+/* front */
+.clipboard-model .clip>div:nth-of-type(1) {
+    width: 100%;
+    height: calc(var(--y) / 2);
+    transform-origin: top;
+    rotate: x 90deg;
+    translate: 0 calc(var(--z) / 12) 0;
+}
+
+/* back */
+.clipboard-model .clip>div:nth-of-type(2) {
+    width: 100%;
+    height: calc(var(--y) / 2);
+    transform-origin: top;
+    rotate: x 90deg;
+    translate: 0 0 0;
+}
+
+/* top */
+.clipboard-model .clip>div:nth-of-type(3) {
+    width: 100%;
+    height: 100%;
+    translate: 0 0 calc(var(--y) / 2);
+}
+
+/* bottom */
+.clipboard-model .clip>div:nth-of-type(4) {
+    width: 100%;
+    height: 100%;
+    translate: 0 0 0;
+}
+
+/* left */
+.clipboard-model .clip>div:nth-of-type(5) {
+    width: calc(var(--y) / 2);
+    height: 100%;
+    transform-origin: left;
+    rotate: y 90deg;
+    translate: 0 0 calc(var(--y) / 2);
+}
+
+/* right */
+.clipboard-model .clip>div:nth-of-type(6) {
+    width: calc(var(--y) / 2);
+    height: 100%;
+    transform-origin: left;
+    rotate: y 90deg;
+    translate: calc(var(--x) / 3) 0 calc(var(--y) / 2);
+}
+
+
+/* ============================================================================== */
+/* EXTENTION */
+/* ============================================================================== */
+
+
+.clipboard-model .clip .extention {
+    width: calc(var(--x) / 5);
+    height: calc(var(--z) / 20);
+    background-color: transparent;
+    transform-origin: top;
+    rotate: x 90deg;
+    top: 0;
+    left: 50%;
+    translate: -50%;
+}
+
+.clipboard-model .clip .extention::before {
+    display: none;
+}
+
+.clipboard-model .clip .extention>div {
+    background-color: #bc9a3c;
+}
+
+/* front */
+.clipboard-model .clip .extention>div:nth-of-type(1) {
+    width: 100%;
+    height: calc(var(--y) / 2);
+    transform-origin: top;
+    rotate: x 90deg;
+    translate: 0 0 calc(var(--y) / -2);
+}
+
+/* back */
+.clipboard-model .clip .extention>div:nth-of-type(2) {
+    width: 100%;
+    height: calc(var(--y) / 2);
+    transform-origin: top;
+    rotate: x 90deg;
+    translate: 0 calc(var(--z) / 20) calc(var(--y) / -2);
+}
+
+/* top */
+.clipboard-model .clip .extention>div:nth-of-type(3) {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    translate: 0 0 calc(var(--y) / -2);
+
+    mask-image: url(../images/diamond.png);
+    mask-mode: luminance;
+    mask-position: center center;
+    mask-size: 50% 100%;
+    mask-repeat: repeat;
+}
+
+/* bottom */
+.clipboard-model .clip .extention>div:nth-of-type(4) {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    translate: 0 0 0;
+
+    mask-image: url(../images/diamond.png);
+    mask-mode: luminance;
+    mask-position: center center;
+    mask-size: 50% 100%;
+    mask-repeat: repeat;
+}
+
+/* left */
+.clipboard-model .clip .extention>div:nth-of-type(5) {
+    width: calc(var(--y) / 2);
+    height: 100%;
+    transform-origin: left;
+    rotate: y 90deg;
+    translate: 0 0 0;
+}
+
+/* right */
+.clipboard-model .clip .extention>div:nth-of-type(6) {
+    width: calc(var(--y) / 2);
+    height: 100%;
+    transform-origin: left;
+    rotate: y 90deg;
+    translate: calc(var(--x) / 5) 0 0;
+}

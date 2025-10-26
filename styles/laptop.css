@@ -3,13 +3,21 @@
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 
-.threeD div:not(.keyboard-container div) {
+.laptop div:not(.keyboard-container div) {
     position: absolute;
     background-color: rgb(193, 193, 193);
 }
 
+.laptop {
+    --animation-duration: 10s;
+
+    --x: 75cqw;
+    --y: 2.5cqw;
+    --z: 50cqw;
+}
+
 .laptop-model {
-    animation: spin var(--animation-duration) linear infinite;
+    animation: spin-laptop var(--animation-duration) linear infinite;
     translate: 0 10cqw;
     /* transform: rotateY(0deg) rotateX(-20deg); */
 }
@@ -18,7 +26,7 @@ ul li:nth-of-type(1):hover .laptop-model {
     translate: 0 15cqw;
 }
 
-@keyframes spin {
+@keyframes spin-laptop {
     0% {
         transform: rotateY(0deg);
     }
