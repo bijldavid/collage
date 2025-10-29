@@ -46,9 +46,9 @@ main {
 
 main>section {
     position: relative;
-    max-width: 1200px;
+    max-width: 1100px;
     margin-inline: auto;
-    margin-block: 5rem;
+    margin-block: 3rem;
     padding: 5rem;
     background-color: var(--backdrop-200);
     border: 2px solid var(--border-400);
@@ -218,8 +218,8 @@ section h1::before {
 
 .content-container {
     /* /////////////////////// variables /////////////////////// */
-    --width: 17rem;
-    --height: 17rem;
+    --width: 15rem;
+    --height: 15rem;
 
     --container-padding: 1rem;
     --text-padding: 1rem;
@@ -317,8 +317,8 @@ section h1::before {
 }
 
 .content-container:has(input:nth-of-type(1):checked) {
-    --width: 10rem;
-    --height: 10rem;
+    --width: 9rem;
+    --height: 9rem;
 }
 
 .content-container:has(input:nth-of-type(1):checked)>ul {
@@ -385,25 +385,25 @@ section h1::before {
     background-color: var(--border-400);
 }
 
-.content-container:has(input:nth-of-type(1):checked)>ul>li a {
+.content-container:has(input:nth-of-type(1):checked)>ul>li a:nth-of-type(1) {
     border: 2px solid var(--border-400);
     width: max-content;
 }
 
-.content-container:has(input:nth-of-type(1):checked)>ul>li a::before {
-    display: none;
+.content-container:has(input:nth-of-type(1):checked)>ul>li a:nth-of-type(1)::before {
+    display: none !important;
 }
 
-.content-container:has(input:nth-of-type(1):checked)>ul>li a>p {
-    display: none;
+.content-container:has(input:nth-of-type(1):checked)>ul>li a:nth-of-type(1)>p {
+    display: none !important;
 }
 
 .content-container:has(input:nth-of-type(1):checked) .details ul {
-    display: none;
+    display: none !important;
 }
 
 .content-container:has(input:nth-of-type(1):checked) .details img:nth-of-type(1) {
-    top: 50%;
+    top: 50% !important;
 }
 
 /* -=-=-=-=-=-=-=-=-=- */
@@ -430,7 +430,7 @@ section h1::before {
     display: none;
 }
 
-.content-container>ul>li a {
+.content-container>ul>li a:nth-of-type(1) {
     display: block;
     position: relative;
     border-bottom: none;
@@ -439,7 +439,7 @@ section h1::before {
     padding: var(--container-padding);
 }
 
-.content-container>ul>li a::before {
+.content-container>ul>li a:nth-of-type(1)::before {
     position: absolute;
     content: '';
     height: calc((var(--text-padding) * 2) + var(--font-size) + var(--container-padding));
@@ -449,7 +449,7 @@ section h1::before {
     right: 0;
 }
 
-.content-container>ul>li a>p {
+.content-container>ul>li a:nth-of-type(1)>p {
     box-sizing: content-box;
     z-index: 1;
     position: absolute;
@@ -472,7 +472,7 @@ section h1::before {
     color: var(--border-400);
 }
 
-.content-container>ul>li a>p::before {
+.content-container>ul>li a:nth-of-type(1)>p::before {
     position: absolute;
     content: "";
     background: var(--border-400);
@@ -484,7 +484,7 @@ section h1::before {
     transform: skew(var(--p-skew-angle));
 }
 
-.content-container>ul>li a>p::after {
+.content-container>ul>li a:nth-of-type(1)>p::after {
     position: absolute;
     content: "";
     background: var(--border-400);
@@ -496,7 +496,7 @@ section h1::before {
     transform: skew(var(--p-skew-angle));
 }
 
-.content-container>ul>li a .cover {
+.content-container>ul>li a:nth-of-type(1) .cover {
     width: var(--width);
     height: var(--height);
     background-image: url(../images/mannen_met_de_code.png);
@@ -521,7 +521,7 @@ section h1::before {
     background-image: url(../images/nsform_thumbnail.png);
 }
 
-.content-container>ul>li a .cover .details {
+.content-container>ul>li a:nth-of-type(1) .cover .details {
     position: relative;
     height: 100%;
     width: 100%;
@@ -543,7 +543,7 @@ section h1::before {
     mask-position: center calc((var(--height) + (var(--height) / 2)) * -1);
 }
 
-.content-container>ul>li a .cover .details ul {
+.content-container>ul>li a:nth-of-type(1) .cover .details ul {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -553,18 +553,18 @@ section h1::before {
     padding: 1rem;
 }
 
-.content-container>ul>li a .cover .details ul li {
+.content-container>ul>li a:nth-of-type(1) .cover .details ul li {
     font-family: 'rm-mono';
     font-size: .75rem;
     color: var(--border-400);
 }
 
-.content-container>ul>li a .cover .details ul li span {
+.content-container>ul>li a:nth-of-type(1) .cover .details ul li span {
     background-color: var(--backdrop-100);
 }
 
 
-.content-container>ul>li a .cover .details img:nth-of-type(1) {
+.content-container>ul>li a:nth-of-type(1) .cover .details img:nth-of-type(1) {
     z-index: -1;
     filter: url(#pixelate200);
     position: absolute;
