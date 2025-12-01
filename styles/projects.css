@@ -1,6 +1,6 @@
-/* o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0oo0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o */
+/* ------------------------------------------------------------------------------------- */
 /* General styling */
-/* o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0oo0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o */
+/* ------------------------------------------------------------------------------------- */
 
 
 .container {
@@ -31,14 +31,9 @@
         var(--background-solid);
 }
 
-
-
-
-
-
-/* o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0oo0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o */
+/* ------------------------------------------------------------------------------------- */
 /* Content block */
-/* o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0oo0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o */
+/* ------------------------------------------------------------------------------------- */
 
 main {
     padding-inline: 3rem;
@@ -54,9 +49,9 @@ main>section {
     border: 2px solid var(--border-400);
 }
 
-/* -=-=-=-=-=-=-=-=-=- */
+/* -  -  -  -  -  -  -  -  -  -  -  -  - */
 /* header */
-/* -=-=-=-=-=-=-=-=-=- */
+/* -  -  -  -  -  -  -  -  -  -  -  -  - */
 
 section>header {
     position: absolute;
@@ -173,53 +168,41 @@ section>header span p {
 /* title */
 /* -=-=-=-=-=-=-=-=-=- */
 
-section h1 {
+section .title-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+section .title-container h1 {
     position: relative;
     filter: url(#pixelate100);
-    font-size: 5rem;
-    padding-bottom: .5rem;
-    padding-inline-start: calc(5rem + 1rem);
+    font-size: 3rem;
+    text-align: center;
+    padding-inline: 1rem;
     color: #790c0c;
-
-    width: 100%;
+    /* background-color: var(--backdrop-200); */
     /* box-shadow: 
     0 3px var(--border-400), 
     0 5px var(--backdrop-200),
     0 15px var(--border-400);
     margin-bottom: calc(15px + 2rem); */
-    margin-bottom: 2rem;
+    white-space: nowrap;
 }
 
-section h1::before {
-    content: '';
-    background-image: url(../images/design.svg);
-    background-size: 75%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: calc(100% - .5rem);
-    width: 5rem;
-    animation: spin 12s linear infinite;
-}
-
-@keyframes spin {
-    0% {
-        rotate: z 0deg;
-    }
-    100% {
-        rotate: z 360deg;
-    }
+section .title-container span {
+    display: block;
+    height: 1px;
+    border-top: 2px dashed var(--border-400);
+    width: 100%;
 }
 
 
 
 
 .content-container {
-    /* /////////////////////// variables /////////////////////// */
-    --width: 15rem;
-    --height: 15rem;
+    --width: 13rem;
+    --height: 13rem;
 
     --container-padding: 1rem;
     --text-padding: 1rem;
@@ -230,17 +213,9 @@ section h1::before {
     --p-skew-angle: calc(var(--skew-angle) * 1);
     --n-skew-angle: calc(var(--skew-angle) * -1);
 
-
-
-
-
     isolation: isolate;
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    background-color: var(--backdrop-100);
-    padding: 2rem;
-    border: 2px solid var(--border-400);
+    gap: 1rem;
 }
 
 
@@ -248,19 +223,28 @@ section h1::before {
 /* filter */
 /* -=-=-=-=-=-=-=-=-=- */
 
-.content-container header {
-    width: max-content;
-    height: calc(16px + (.5rem * 2) + (5px * 2));
+.content-container aside {
+    position: relative;
+    background-color: var(--backdrop-100);
+    padding: 2rem 1rem;
     border: 2px solid var(--border-400);
-    display: flex;
+}
+
+.content-container aside .layout-interactions {
+    position: sticky;
+    top: 5rem;
+    width: calc(16px + (.5rem * 2) + (5px * 2));
+    border: 2px solid var(--border-400);
+    display: grid;
+    height: max-content;
     gap: 2px;
     background: var(--backdrop-200);
 }
 
-.content-container header button {
+.content-container aside .layout-interactions button {
     display: block;
     appearance: none;
-    height: 100%;
+    width: 100%;
     aspect-ratio: 1;
     border: none;
     background: transparent;
@@ -274,7 +258,7 @@ section h1::before {
     padding: .3rem;
 }
 
-.content-container header button:active {
+.content-container aside .layout-interactions button:active {
     border-right: 5px solid var(--backdrop-100);
     border-bottom: 5px solid var(--backdrop-100);
     border-top: 5px solid var(--backdrop-300);
@@ -286,7 +270,7 @@ section h1::before {
 /* grid / list */
 /* -=-=-=-=-=-=-=-=-=- */
 
-.content-container header input {
+.content-container aside .layout-interactions input {
     height: 100%;
     aspect-ratio: 1;
     appearance: none;
@@ -301,15 +285,16 @@ section h1::before {
     background-position: center;
 }
 
-.content-container header input:nth-of-type(1) {
+
+.content-container aside .layout-interactions input:nth-of-type(1) {
     background-image: url(../images/list-view.svg);
 }
 
-.content-container header input:nth-of-type(2) {
+.content-container aside .layout-interactions input:nth-of-type(2) {
     background-image: url(../images/grid-view.svg);
 }
 
-.content-container header input:checked {
+.content-container aside .layout-interactions input:checked {
     border-right: 5px solid var(--backdrop-100);
     border-bottom: 5px solid var(--backdrop-100);
     border-top: 5px solid var(--backdrop-300);
@@ -330,7 +315,6 @@ section h1::before {
 .content-container:has(input:nth-of-type(1):checked)>ul>li {
     position: relative;
     display: flex;
-    transition: background-color .25s ease;
 }
 
 .content-container:has(input:nth-of-type(1):checked)>ul>li .list-details {
@@ -340,12 +324,11 @@ section h1::before {
     display: flex !important;
     flex-direction: column;
     gap: 1rem;
-    background-color: var(--backdrop-200);
-    transition: background-color .3s ease;
+    border-block: 2px dashed var(--backdrop-200);
 }
 
 .content-container:has(input:nth-of-type(1):checked)>ul>li:hover .list-details {
-    background-color: var(--backdrop-100);
+    border-block: 2px dashed var(--border-400);
 }
 
 .content-container:has(input:nth-of-type(1):checked)>ul>li .list-details p {
@@ -366,14 +349,8 @@ section h1::before {
 }
 
 .content-container:has(input:nth-of-type(1):checked)>ul>li .list-details ul li span {
-    background-color: var(--backdrop-300);
-    transition: background-color .3s ease;
-}
-
-.content-container:has(input:nth-of-type(1):checked)>ul>li:hover .list-details ul li span {
     background-color: var(--backdrop-200);
 }
-
 
 .content-container:has(input:nth-of-type(1):checked)>ul>li:not(:last-of-type)::after {
     content: '';
@@ -411,13 +388,20 @@ section h1::before {
 /* -=-=-=-=-=-=-=-=-=- */
 
 .content-container>ul {
+    position: relative;
     list-style: none;
     display: grid;
+    width: 100%;
     grid-template-columns: repeat(3, calc(var(--width) + (var(--container-padding) * 2)));
     gap: 2rem calc((100% - ((var(--width) + (var(--container-padding) * 2)) * 3)) / 2);
+
+    background-color: var(--backdrop-100);
+    padding: 2rem;
+    border: 2px solid var(--border-400);
 }
 
-@media (max-width: 1265px) {
+
+@media (max-width: 1200px) {
     .content-container>ul {
         display: flex;
         flex-wrap: wrap;

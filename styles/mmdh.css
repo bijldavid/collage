@@ -1,6 +1,7 @@
-/* o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0oo0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o */
+/* ------------------------------------------------------------------------------------- */
 /* General styling */
-/* o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0oo0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o */
+/* ------------------------------------------------------------------------------------- */
+
 
 
 .container {
@@ -36,11 +37,11 @@
 
 
 
-/* o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0oo0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o */
+/* ------------------------------------------------------------------------------------- */
 /* Content block */
-/* o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0oo0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o0o */
+/* ------------------------------------------------------------------------------------- */
 
-main > section {
+main>section {
     position: relative;
     max-width: 1100px;
     margin-inline: auto;
@@ -50,9 +51,9 @@ main > section {
     border: 2px solid var(--border-400);
 }
 
-/* -=-=-=-=-=-=-=-=-=- */
+/* -  -  -  -  -  -  -  -  -  -  -  -  - */
 /* header */
-/* -=-=-=-=-=-=-=-=-=- */
+/* -  -  -  -  -  -  -  -  -  -  -  -  - */
 
 section header {
     position: absolute;
@@ -130,27 +131,35 @@ section header span p {
     0% {
         rotate: z 0deg;
     }
+
     12.5% {
         rotate: z 45deg;
     }
+
     25% {
         rotate: z 90deg;
     }
+
     37.5% {
         rotate: z 135deg;
     }
+
     50% {
         rotate: z 180deg;
     }
+
     62.5% {
         rotate: z 225deg;
     }
+
     75% {
         rotate: z 270deg;
     }
+
     82.5% {
         rotate: z 315deg;
     }
+
     100% {
         rotate: z 360deg;
     }
@@ -161,23 +170,27 @@ section header span p {
 /* title */
 /* -=-=-=-=-=-=-=-=-=- */
 
-section h1 {
-    position: relative;
-    filter: url(#pixelate100);
-    font-size: 5rem;
-    padding-bottom: .5rem;
-    padding-inline-start: calc(5rem + 1rem);
-    color: #790c0c;
-
-    width: 100%;
-    box-shadow: 
-    0 3px var(--border-400), 
-    0 5px var(--backdrop-200),
-    0 15px var(--border-400);
+section .title-container {
+    display: flex;
+    align-items: center;
+    box-shadow:
+        0 3px var(--border-400),
+        0 5px var(--backdrop-200),
+        0 15px var(--border-400);
     margin-bottom: calc(15px + 2rem);
+    padding-bottom: .5rem;
 }
 
-section h1::before {
+section .title-container h1 {
+    position: relative;
+    filter: url(#pixelate100);
+    font-size: 3rem;
+    padding-inline: calc(3rem + 1rem) 1rem;
+    color: #790c0c;
+    white-space: nowrap;
+}
+
+section .title-container h1::before {
     content: '';
     background-image: url(../images/hammer_icon.png);
     background-size: 85%;
@@ -187,7 +200,14 @@ section h1::before {
     top: 0;
     left: 0;
     height: calc(100% - .5rem);
-    width: 5rem;
+    width: 3rem;
+}
+
+section .title-container span {
+    display: block;
+    height: 1px;
+    border-top: 2px dashed var(--border-400);
+    width: 100%;
 }
 
 

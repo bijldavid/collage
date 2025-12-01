@@ -15,11 +15,13 @@
     color: #790c0c;
 
     opacity: 0;
-    transition: translate 1s cubic-bezier(0, 0.55, 0.45, 1), opacity .3s ease-in;
+    scale: 0;
+    transition: translate var(--hp-duration) var(--hp-timing-function), scale var(--hp-duration) var(--hp-timing-function), opacity .4s ease;
 }
 
 .scene:has(li:nth-of-type(1):hover) .background h2:nth-of-type(1) {
     opacity: 1;
+    scale: 1;
     translate: -50% -80%;
 }
 
@@ -36,11 +38,13 @@
     color: #790c0c;
 
     opacity: 0;
-    transition: translate 1s cubic-bezier(0, 0.55, 0.45, 1), opacity .3s ease-in;
+    scale: 0;
+    transition: translate var(--hp-duration) var(--hp-timing-function), scale var(--hp-duration) var(--hp-timing-function), opacity .4s ease;
 }
 
 .scene:has(li:nth-of-type(2):hover) .background h2:nth-of-type(2) {
     opacity: 1;
+    scale: 1;
     translate: -50% -80%;
 }
 
@@ -67,7 +71,7 @@
 
 .scene .threeD .laptop-model {
     rotate: x 0deg;
-    transition: rotate 1s ease, translate 2.5s ease;
+    transition: rotate var(--hp-duration) var(--hp-timing-function), translate 2.5s var(--hp-timing-function);
 }
 
 .scene:has(li:hover) .threeD .laptop-model {
@@ -77,7 +81,7 @@
 .scene > ul > li > a {
     display: block;
     translate: 0;
-    transition: translate 1s ease;
+    transition: translate var(--hp-duration) var(--hp-timing-function);
 }
 
 .scene > ul > li:nth-of-type(1):hover > a {
@@ -128,7 +132,7 @@
             var(--background-grid) 61.5px),
         var(--background-solid);
 
-    transition: rotate 1s ease;
+    transition: rotate var(--hp-duration) var(--hp-timing-function);
 }
 
 
