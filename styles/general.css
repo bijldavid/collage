@@ -27,7 +27,7 @@
     width: 100vw;
 }
 
-.container>.noise {
+.noise {
     pointer-events: none;
     position: absolute;
     background-image: url(../images/small_noise.gif);

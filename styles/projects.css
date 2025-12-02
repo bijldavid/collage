@@ -2,48 +2,30 @@
 /* General styling */
 /* ------------------------------------------------------------------------------------- */
 
-
-.container {
-    overflow: hidden;
-    height: auto;
-}
-
-.background-setup {
-    position: absolute !important;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-
-.scene .background {
-    height: 100%;
-    width: 100%;
-    background:
-        repeating-linear-gradient(transparent,
-            transparent 40px,
-            var(--background-grid) 40px,
-            var(--background-grid) 41px),
-        repeating-linear-gradient(90deg,
-            transparent,
-            transparent 40px,
-            var(--background-grid) 40px,
-            var(--background-grid) 41px),
-        var(--background-solid);
-}
-
 /* ------------------------------------------------------------------------------------- */
 /* Content block */
 /* ------------------------------------------------------------------------------------- */
 
 main {
-    padding-inline: 3rem;
+    position: relative;
+    padding: 3rem;
+    background:
+    repeating-linear-gradient(transparent,
+        transparent 40px,
+        var(--background-grid) 40px,
+        var(--background-grid) 41px),
+    repeating-linear-gradient(90deg,
+        transparent,
+        transparent 40px,
+        var(--background-grid) 40px,
+        var(--background-grid) 41px),
+    var(--background-solid);
 }
 
 main>section {
     position: relative;
     max-width: 1100px;
     margin-inline: auto;
-    margin-block: 3rem;
     padding: 5rem;
     background-color: var(--backdrop-200);
     border: 2px solid var(--border-400);
@@ -232,7 +214,7 @@ section .title-container span {
 
 .content-container aside .layout-interactions {
     position: sticky;
-    top: 5rem;
+    top: 2rem;
     width: calc(16px + (.5rem * 2) + (5px * 2));
     border: 2px solid var(--border-400);
     display: grid;

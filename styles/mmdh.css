@@ -3,43 +3,25 @@
 /* ------------------------------------------------------------------------------------- */
 
 
-
-.container {
-    overflow: hidden;
-    height: auto;
-}
-
-.background-setup {
-    position: absolute !important;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-
-.scene .background {
-    height: 100%;
-    width: 100%;
-    background:
-        repeating-linear-gradient(transparent,
-            transparent 40px,
-            var(--background-grid) 40px,
-            var(--background-grid) 41px),
-        repeating-linear-gradient(90deg,
-            transparent,
-            transparent 40px,
-            var(--background-grid) 40px,
-            var(--background-grid) 41px),
-        var(--background-solid);
-}
-
-
-
-
-
-
 /* ------------------------------------------------------------------------------------- */
 /* Content block */
 /* ------------------------------------------------------------------------------------- */
+
+main {
+    position: relative;
+    padding: 3rem;
+    background:
+    repeating-linear-gradient(transparent,
+        transparent 40px,
+        var(--background-grid) 40px,
+        var(--background-grid) 41px),
+    repeating-linear-gradient(90deg,
+        transparent,
+        transparent 40px,
+        var(--background-grid) 40px,
+        var(--background-grid) 41px),
+    var(--background-solid);
+}
 
 main>section {
     position: relative;
